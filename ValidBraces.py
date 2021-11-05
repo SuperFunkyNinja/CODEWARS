@@ -2,9 +2,9 @@ import re
 
 
 def validBraces(string):
-    if string is None:
-        print("true")
-        return True
+    # if string is None:
+    #     print("true")
+    #     return True
     if len(string) == 0:
         print("true")
         return True
@@ -14,10 +14,12 @@ def validBraces(string):
         print("false")
         return False
     string = str.replace(string, gp.group(0), "")
-    validBraces(string)
+    return validBraces(string)
 
 
 validBraces("[({})]()[[]]{[()}]")
-validBraces("()")
+if validBraces("()") is True:
+    print("testpassed")
+else:
+    print("test failed")
 validBraces("")
-validBraces(None)
