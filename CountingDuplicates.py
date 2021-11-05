@@ -1,23 +1,18 @@
 def duplicate_count(text):
-    # newlist = []
+    newlist = []
     # characters = "abcdefghijklmnopqrstuvwxyz0123456789"
-    # text = text.lower()
-    # print(len(["i" for i in characters if text.count(i) > 1]))
-
-    return len(
-        [
-            "i"
-            for i in "abcdefghijklmnopqrstuvwxyz0123456789"
-            if text.lower().count(i) > 1
-        ]
-    )
+    # print(len(["i" for i in characters if text.lower().count(i) > 1]))
 
     # for i in "abcdefghijklmnopqrstuvwxyz":
     #     if text.count(i) > 1:
     #         newlist.append(i)
 
-    # for i in text:
-    #     newlist.append(text.count(i))
+    # for i in text.lower():
+    #     if text.lower().count(i) > 1:
+    #         newlist.append(i)
+    print(
+        len(list(dict.fromkeys([i for i in text.lower() if text.lower().count(i) > 1])))
+    )
 
     # for i, j in enumerate(text):
     #     if j in text[i - 1 : i + 1]:
