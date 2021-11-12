@@ -1,29 +1,19 @@
 def done_or_not(board):  # board[i][j]
     collumns = []
     blocks = []
-
     for i in range(0, 9):
         collumn = []
         for j in range(0, 9):
             collumn.append(board[j][i])
         collumns.append(collumn)
-
     starts = (0, 3, 6)
-
     for i in starts:
         for j in starts:
             block = []
-            block.append(board[i][j])
-            block.append(board[i][j + 1])
-            block.append(board[i][j + 2])
-            block.append(board[i + 1][j])
-            block.append(board[i + 1][j + 1])
-            block.append(board[i + 1][j + 2])
-            block.append(board[i + 2][j])
-            block.append(board[i + 2][j + 1])
-            block.append(board[i + 2][j + 2])
+            for k in range(0, 3):
+                for l in range(0, 3):
+                    block.append(board[i + k][j + l])
             blocks.append(block)
-
     print(blocks)
 
 
