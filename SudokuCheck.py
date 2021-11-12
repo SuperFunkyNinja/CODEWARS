@@ -14,7 +14,20 @@ def done_or_not(board):  # board[i][j]
                 for l in range(0, 3):
                     block.append(board[i + k][j + l])
             blocks.append(block)
-    print(blocks)
+
+    for i in board:
+        if len(i) != len(set(i)):
+            return "Try again!"
+
+    for i in collumns:
+        if len(i) != len(set(i)):
+            return "Try again!"
+
+    for i in blocks:
+        if len(i) != len(set(i)):
+            return "Try again!"
+
+    return "Finished!"
 
 
 done_or_not(
@@ -30,7 +43,7 @@ done_or_not(
         [8, 7, 9, 6, 4, 2, 1, 5, 3],
     ]
 )
-"""
+
 done_or_not(
     [
         [1, 3, 2, 5, 7, 9, 4, 6, 8],
@@ -44,7 +57,7 @@ done_or_not(
         [8, 7, 9, 6, 4, 2, 1, 3, 5],
     ]
 )
-"""
+
 
 """
 test.assert_equals(done_or_not([[1, 3, 2, 5, 7, 9, 4, 6, 8]
