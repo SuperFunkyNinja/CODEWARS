@@ -26,7 +26,6 @@ import itertools
 
 
 def get_pins(observed):
-    observed = str(observed)
     keypad = {
         "1": (1, 2, 4),
         "2": (1, 2, 3, 5),
@@ -34,23 +33,23 @@ def get_pins(observed):
         "4": (1, 4, 5, 7),
         "5": (2, 4, 5, 6, 8),
         "6": (3, 5, 6, 9),
-        "7": (4, 7, 5),
+        "7": (4, 7, 8),
         "8": (5, 7, 8, 9, 0),
         "9": (6, 8, 9),
         "0": (8, 0),
     }
-
-    numbers = []
-    for i in observed:
-        numbers.append(keypad[i])
-
-    print(numbers)
-
-    print(list(itertools.product(*numbers)))
+    numbers = [keypad[i] for i in observed]
+    combos = list(itertools.product(*numbers))
+    output = ["".join(map(str, i)) for i in combos]
+    print(output)
 
 
-get_pins(123)
+get_pins("007")
 
+"""
+['004', '005', '007', '084', '085', '087', '804', '805', '807', '884', '885', '887']
+['004', '007', '008', '084', '087', '088', '804', '807', '808', '884', '887', '888']
+"""
 
 """
 test.describe('example tests')
