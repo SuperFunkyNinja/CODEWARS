@@ -65,7 +65,7 @@ print(helper.page_count())
 print(helper2.page_count())
 
 print(helper.page_item_count(2))
-print(helper2.page_item_count(0))
+print(helper2.page_item_count(2))
 
 # print(helper.page_index(12))
 # print(helper2.page_index(12))
