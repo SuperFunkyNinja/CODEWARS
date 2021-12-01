@@ -21,7 +21,7 @@ C	100
 D	500
 M	1000
 """
-ROMAN = [
+ROMAN_LETTERS = [
     (1000, "M"),
     (900, "CM"),
     (500, "D"),
@@ -37,13 +37,13 @@ ROMAN = [
     (1, "I"),
 ]
 
-roman_numerals = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+ROMAN_NUMERALS = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 
 
 class RomanNumerals:
     def to_roman(number):
         result = []
-        for (arabic, roman) in ROMAN:
+        for (arabic, roman) in ROMAN_LETTERS:
             (factor, number) = divmod(number, arabic)
             result.append(roman * factor)
             if number == 0:
@@ -53,12 +53,12 @@ class RomanNumerals:
     def from_roman(roman_num):
         roman_result = 0
         for i, c in enumerate(roman_num):
-            if (i + 1) == len(roman_num) or roman_numerals[c] >= roman_numerals[
+            if (i + 1) == len(roman_num) or ROMAN_NUMERALS[c] >= ROMAN_NUMERALS[
                 roman_num[i + 1]
             ]:
-                roman_result += roman_numerals[c]
+                roman_result += ROMAN_NUMERALS[c]
             else:
-                roman_result -= roman_numerals[c]
+                roman_result -= ROMAN_NUMERALS[c]
         return roman_result
 
 
